@@ -31,15 +31,22 @@ document.addEventListener("DOMContentLoaded", function () {
       videoObserver.observe(video);
     });
 
+    
+
     // Открытие модального окна
-  openModalLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const videoId = this.getAttribute("data-video-id");
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-      modal.style.display = "flex"; // Показываем модальное окно
+    openModalLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const videoId = this.getAttribute("data-video-id");
+        const iframe = document.getElementById('youtube-iframe');
+        if (!iframe) {
+          console.error("Iframe with ID 'youtube-iframe' not found");
+          return;
+        }
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.style.display = "flex"; // Показываем модальное окно
+      });
     });
-  });
 
   // Закрытие модального окна
   closeModal.addEventListener("click", function () {
