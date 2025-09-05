@@ -1,33 +1,30 @@
-<div class="videos">
-  {% for project in site.data.settings.projects %}
-    {% if project.youtube %}
-      <div class="video-container">
-        <a href="#" class="open-modal" data-video-id="{{ project.youtube }}">
-          <video class="lazy-video" muted loop preload="none">
-            {% if project.video %}
-              <source src="{{ site.github.url }}/assets/videos/{{ project.video }}" type="video/mp4">
-            {% endif %}
-            Your browser does not support the video tag.
-          </video>
-          <div class="overlay">
-            <div class="text">
-              {% if project.name %}
-                {{ project.name }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              {% else %}
-                View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              {% endif %}
-            </div>
-          </div>
-        </a>
+<div class="video-container">
+  <a href="#" class="open-modal" data-video-id="{{ include.youtube }}">
+    <video class="lazy-video" muted loop preload="none">
+      <source src="{{ site.github.url }}/assets/videos/{{ include.video }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <div class="text">
+        {% if include.text %}
+          {{ include.text }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {% else %}
+          View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {% endif %}
       </div>
-    {% endif %}
-  {% endfor %}
+    </div>
+  </a>
 </div>
 
 <!-- Модальное окно -->
 <div id="youtube-modal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
-    <iframe id="youtube-iframe" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    <iframe 
+    src="https://www.youtube.com/embed/{{ include.youtube }}?autoplay=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+</iframe>
   </div>
 </div>
