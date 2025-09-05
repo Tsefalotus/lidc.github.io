@@ -1,0 +1,17 @@
+<div class="video-container">
+  <a href="{{ include.url }}" target="_blank">
+    <video autoplay muted loop class="video">
+      <source src="{{ site.github.url }}/assets/videos/{{ include.video }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <div class="text">
+        {% if include.text %}
+          {{ include.text }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {% else %}
+          View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</div>

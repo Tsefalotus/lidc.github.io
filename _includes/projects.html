@@ -1,4 +1,5 @@
 <section>
+  <!--
   <div class="project-container">
     {% for project in site.data.settings.projects %}
       <a href="{{ site.github.url }}/projects/{{ project.url }}">
@@ -8,6 +9,20 @@
           </div>
         </div>
       </a>
+    {% endfor %}
+  </div> -->
+
+  <div class="projects-container">
+    {% for project in site.data.settings.projects %}
+      <div class="project-item">
+        {% if include.video_mode %}
+          <!-- Если video_mode=true, отображаем видео -->
+          {% include video.html url=project.url video=project.video text=project.name %}
+        {% else %}
+          <!-- Если video_mode не указан, отображаем изображение -->
+          {% include image.html url=project.url image=project.image text=project.name %}
+        {% endif %}
+      </div>
     {% endfor %}
   </div>
 </section>
