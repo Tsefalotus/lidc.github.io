@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const videos = document.querySelectorAll(".lazy-video");
+    const modal = document.getElementById("youtube-modal");
+    const iframe = document.getElementById("youtube-iframe");
+    const closeModal = document.querySelector(".close-modal");
+    const openModalLinks = document.querySelectorAll(".open-modal");
   
     const observerOptions = {
       root: null, // Отслеживаем относительно viewport
@@ -26,5 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
     videos.forEach((video) => {
       videoObserver.observe(video);
     });
+
+    // Открытие модального окна
+  openModalLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const videoId = this.getAttribute("data-video-id");
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      modal.style.display = "flex"; // Показываем модальное окно
+    });
+  });
+
+  // Закрытие модального окна
+  closeModal.addEventListener("click", function () {
+    modal.style.display = "none";
+    iframe.src = ""; // Очищаем src, чтобы остановить видео
+  });
+
+  // Закрытие модального окна при клике вне его
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      iframe.src = ""; // Очищаем src, чтобы остановить видео
+    }
+  });
+    
   });
   
