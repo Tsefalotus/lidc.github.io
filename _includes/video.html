@@ -1,6 +1,6 @@
 <div class="video-container">
   <a href="{{ include.url }}" target="_blank">
-    <video class="lazy-video" muted loop preload="none">
+    <video class="lazy-video" muted loop preload="none" data-video-id="{{ include.youtube }}">
       <source src="{{ site.github.url }}/assets/videos/{{ include.video }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
