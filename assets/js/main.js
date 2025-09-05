@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
   
         if (entry.isIntersecting) {
           // Если видео пересекает 50% экрана, воспроизводим его
+          console.log("Playing video:", video);
           video.play();
         } else {
           // Если видео выходит из зоны видимости, ставим на паузу
+          console.log("Pausing video:", video);
           video.pause();
         }
       });
