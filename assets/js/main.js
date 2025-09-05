@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Наблюдатель для видео-превью
   const observerOptions = {
     root: null,
-    threshold: 0.5,
+    threshold: 0.5, // 50% элемента должно быть видно
   };
 
   const videoObserver = new IntersectionObserver((entries) => {
@@ -18,9 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const video = entry.target;
 
       if (entry.isIntersecting) {
+        // Если видео пересекает 50% экрана, воспроизводим его
         console.log("Playing video:", video);
         video.play();
       } else {
+        // Если видео выходит из зоны видимости, ставим на паузу
         console.log("Pausing video:", video);
         video.pause();
       }
@@ -63,12 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
     iframe.src = ""; // Очищаем src, чтобы остановить видео
 
-    // Возобновляем воспроизведение видео-превью, если оно было
-    if (currentVideoPreview) {
-      console.log("Resuming video preview:", currentVideoPreview);
-      currentVideoPreview.play();
-      currentVideoPreview = null; // Сбрасываем переменную
-    }
+    // Возобновляем воспроизведение только для видео, которые видны на 50% экрана
+    videos.forEach((video) => {
+      videoObserver.unobserve(video); // Сначала убираем наблюдение
+      videoObserver.observe(video); // Затем снова добавляем наблюдение
+    });
   });
 
   // Закрытие модального окна при клике вне его
@@ -77,12 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "none";
       iframe.src = ""; // Очищаем src, чтобы остановить видео
 
-      // Возобновляем воспроизведение видео-превью, если оно было
-      if (currentVideoPreview) {
-        console.log("Resuming video preview:", currentVideoPreview);
-        currentVideoPreview.play();
-        currentVideoPreview = null; // Сбрасываем переменную
-      }
+      // Возобновляем воспроизведение только для видео, которые видны на 50% экрана
+      videos.forEach((video) => {
+        videoObserver.unobserve(video); // Сначала убираем наблюдение
+        videoObserver.observe(video); // Затем снова добавляем наблюдение
+      });
     }
   });
 });
