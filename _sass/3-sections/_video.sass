@@ -57,17 +57,22 @@
 /* Стили для содержимого модального окна */
 .modal-content
   background-color: #111 /* Тёмный фон для содержимого */
-  padding: 10px
+  padding: 0 /* Убираем внутренние отступы */
   border-radius: 10px
-  max-width: 95% /* Увеличиваем размер окна */
-  max-height: 95% /* Увеличиваем высоту окна */
-  width: 1200px /* Ширина окна */
-  height: auto
+  max-width: 90% /* Максимальная ширина окна */
+  aspect-ratio: 16 / 9 /* Соотношение сторон 16:9 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6) /* Тень для эффекта */
   display: flex
-  flex-direction: column
   justify-content: center
   align-items: center
+  overflow: hidden /* Убираем лишнее содержимое за пределами окна */
+
+/* iframe для видео */
+iframe
+  width: 100% /* iframe занимает всю ширину модального окна */
+  height: 100% /* iframe занимает всю высоту модального окна */
+  border: none /* Убираем рамку */
+  display: block
 
 /* Стили для кнопки закрытия */
 .close-modal
@@ -77,8 +82,4 @@
   font-size: 24px
   color: #fff
   cursor: pointer
-
-iframe
-  width: 100% /* iframe занимает всю ширину модального окна */
-  height: 600px /* Высота iframe */
-  border: none
+  z-index: 1100 /* Кнопка закрытия всегда сверху */
