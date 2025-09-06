@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Устанавливаем src для iframe с параметрами autoplay=1 и mute=1
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&vq=hd1080`;
       modal.style.display = "flex"; // Показываем модальное окно
     });
   });
