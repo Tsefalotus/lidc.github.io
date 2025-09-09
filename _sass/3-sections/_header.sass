@@ -3,7 +3,7 @@ header
   display: flex
   align-items: center
   justify-content: space-between
-  padding: 10px 25px 10px 6px 
+  padding: 10px 25px 10px 6px
   background-color: #111 // Цвет фона шапки
   max-width: 100%
 
@@ -12,16 +12,14 @@ header
   display: flex
   align-items: center
 
-  img
+  svg
     width: 80px // Установите ширину логотипа
     height: auto // Сохраняем пропорции
-    display: block // Убираем лишние отступы
-    // filter: brightness(1) saturate(1) contrast(1) // Начальное состояние
-
-    transition: filter 0.3s ease // Плавный переход цвета
+    fill: #fff // Белый цвет по умолчанию
+    transition: fill 0.3s ease // Плавный переход цвета
 
     &:hover
-      filter: brightness(25%) saturate(100%) sepia(96%) saturate(1500%) hue-rotate(-25deg) contrast(90%) // Цвет при наведении
+      fill: #BD5248 // Цвет при наведении
 
 // Стили для навигации
 nav
@@ -38,10 +36,9 @@ nav
         font-family: 'Reem Kufi', sans-serif // Укажите нужный шрифт
         font-size: 16px // Размер шрифта
         font-weight: 400 // Толщина шрифта
-        color: #fff
-        text-decoration: none
-        font-size: 16px
-        transition: color 0.3s ease
+        color: #fff // Цвет текста
+        text-decoration: none // Убираем подчеркивание
+        transition: color 0.3s ease // Плавный переход цвета
 
         &:hover
-          color: $accent-color // Цвет при наведении
+          color: #BD5248 // Цвет текста при наведении
