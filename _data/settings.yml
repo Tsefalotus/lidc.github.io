@@ -2,10 +2,10 @@
 # General Site Settings
 
 menu:
-- {name: 'Projects', url: ''}
+- {name: 'PROJECTS', url: ''}
 ## - {name: 'Blog',     url: 'blog'}
-- {name: 'About',    url: 'about'}
-- {name: 'Contact',  url: 'contact'}
+- {name: 'ABOUT',    url: 'about'}
+- {name: 'CONTACT',  url: 'contact'}
 
 #-------------------------------
 # Projects Section
