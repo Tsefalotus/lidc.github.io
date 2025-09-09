@@ -18,7 +18,8 @@ header
     display: block // Убираем лишние отступы
 
 .logo:hover img
-  filter: brightness(0) saturate(100%) invert(39%) sepia(96%) saturate(2000%) hue-rotate(-5deg) brightness(100%) contrast(105%) // Оранжевый цвет
+  color: $accent-color
+  // filter: brightness(0) saturate(100%) invert(39%) sepia(96%) saturate(2000%) hue-rotate(-5deg) brightness(100%) contrast(105%) // Оранжевый цвет
 
 // Стили для навигации
 nav
@@ -38,4 +39,4 @@ nav
         transition: color 0.3s ease
 
         &:hover
-          color: #f39c12 // Цвет при наведении
+          color: $accent-color // Цвет при наведении
