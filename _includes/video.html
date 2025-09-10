@@ -8,11 +8,7 @@
       </video>
       <div class="overlay">
         <div class="text">
-          {% if include.text %}
-            {{ include.text }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          {% else %}
-            View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          {% endif %}
+          {{ site.data.texts.project_texts[include.id] }}
         </div>
       </div>
     </a>
@@ -25,21 +21,9 @@
       </video>
       <div class="overlay">
         <div class="text">
-          {% if include.text %}
-            {{ include.text }}
-          {% else %}
-            View Demo
-          {% endif %}
+          {{ site.data.texts.project_texts[include.id] }}
         </div>
       </div>
     </div>
   {% endif %}
-</div>
-
-<!-- Модальное окно -->
-<div id="youtube-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <iframe id="youtube-iframe" frameborder="0" allowfullscreen></iframe>
-  </div>
 </div>
