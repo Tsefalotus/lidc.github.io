@@ -1,19 +1,28 @@
 <div class="video-container">
-  <a href="#" class="open-modal" data-video-id="{{ include.youtube }}">
+  {% if include.youtube %}
+    <!-- Если есть ссылка на YouTube -->
+    <a href="#" class="open-modal" data-video-id="{{ include.youtube }}">
+      <video class="lazy-video" muted loop preload="none">
+        <source src="{{ site.github.url }}/assets/videos/{{ include.video }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay">
+        <div class="text">
+          {% if include.text %}
+            {{ include.text }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          {% else %}
+            View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  {% else %}
+    <!-- Если ссылки на YouTube нет -->
     <video class="lazy-video" muted loop preload="none">
       <source src="{{ site.github.url }}/assets/videos/{{ include.video }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="overlay">
-      <div class="text">
-        {% if include.text %}
-          {{ include.text }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        {% else %}
-          View Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        {% endif %}
-      </div>
-    </div>
-  </a>
+  {% endif %}
 </div>
 
 <!-- Модальное окно -->
@@ -22,5 +31,4 @@
     <span class="close-modal">&times;</span>
     <iframe id="youtube-iframe" frameborder="0" allowfullscreen></iframe>
   </div>
-</div>
 </div>
