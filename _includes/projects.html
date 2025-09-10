@@ -1,23 +1,10 @@
 <section>
-  <!--
-  <div class="project-container">
-    {% for project in site.data.settings.projects %}
-      <a href="{{ site.github.url }}/projects/{{ project.url }}">
-        <div class="project-unit" data-folder="{{ site.github.url }}/projects/{{ project.url }}" style="background-image: url({{ site.github.url }}/assets/img/projects/{{ project.url }}/thumbnail.jpg)">
-          <div class="project-overlay">
-            <strong>{{ project.name }} <i class="fa fa-arrow-right" aria-hidden="true"></i></strong>
-          </div>
-        </div>
-      </a>
-    {% endfor %}
-  </div> -->
-
     <div class="projects-container">
       {% for project in site.data.settings.projects %}
         <div class="project-item">
           {% if include.video_mode %}
             <!-- Если video_mode=true, отображаем видео -->
-            {% include video.html url=project.url video=project.video text=project.name youtube=project.youtube %}
+            {% include video.html video=project.video text=project.id youtube=project.youtube %}
           {% else %}
             <!-- Если video_mode не указан, отображаем изображение -->
             {% include image.html url=project.url image=project.image text=project.name %}
