@@ -8,7 +8,7 @@
       </video>
       <div class="overlay">
         <div class="text">
-          <h2>{{ include.name }}</h2>
+          <h2>{{ site.data.texts.project_texts[include.id].title }}</h2>
           <p>{{ site.data.texts.project_texts[include.id].description }}</p>
         </div>
       </div>
@@ -37,3 +37,7 @@
     <iframe id="youtube-iframe" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
+
+<p>Debug ID: {{ include.id }}</p>
+<p>Debug Title: {{ site.data.texts.project_texts[include.id].title }}</p>
+<p>Debug Description: {{ site.data.texts.project_texts[include.id].description }}</p>
