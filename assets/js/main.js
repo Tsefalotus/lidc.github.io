@@ -34,55 +34,31 @@ document.addEventListener("DOMContentLoaded", function () {
     videoObserver.observe(video);
   });
 
-  // Открытие модального окна
-  openModalLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+  // Обработчик кликов на "View full video"
+  document.querySelectorAll('.view-full-video').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
 
-      // Получаем идентификатор видео из data-video-id
-      const videoId = this.getAttribute("data-video-id");
+      // Получаем ID видео из data-video-id
+      const videoId = button.dataset.videoId;
+
       if (!iframe) {
         console.error("Iframe with ID 'youtube-iframe' not found");
         return;
       }
 
-      // Ставим на паузу видео-превью
-      const videoPreview = this.querySelector("video");
-      if (videoPreview) {
-        console.log("Pausing video preview:", videoPreview);
-        videoPreview.pause();
-        currentVideoPreview = videoPreview; // Сохраняем текущее видео-превью
-      }
-
-      // Устанавливаем src для iframe с параметрами autoplay=1 и mute=1
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&vq=hd1080`;
-      modal.style.display = "flex"; // Показываем модальное окно
+      // Устанавливаем ссылку на YouTube-видео
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      modal.style.display = 'block'; // Показываем модальное окно
     });
   });
 
   // Закрытие модального окна
-  closeModal.addEventListener("click", function () {
-    modal.style.display = "none";
-    iframe.src = ""; // Очищаем src, чтобы остановить видео
-
-    // Возобновляем воспроизведение только для видео, которые видны на 50% экрана
-    videos.forEach((video) => {
-      videoObserver.unobserve(video); // Сначала убираем наблюдение
-      videoObserver.observe(video); // Затем снова добавляем наблюдение
-    });
-  });
-
-  // Закрытие модального окна при клике вне его
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      iframe.src = ""; // Очищаем src, чтобы остановить видео
-
-      // Возобновляем воспроизведение только для видео, которые видны на 50% экрана
-      videos.forEach((video) => {
-        videoObserver.unobserve(video); // Сначала убираем наблюдение
-        videoObserver.observe(video); // Затем снова добавляем наблюдение
-      });
+  closeModal.addEventListener('click', () => {
+    if (iframe) {
+      iframe.src = ''; // Очищаем src, чтобы остановить видео
     }
+
+    modal.style.display = 'none'; // Скрываем модальное окно
   });
 });
