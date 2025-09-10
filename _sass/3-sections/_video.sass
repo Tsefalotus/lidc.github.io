@@ -28,8 +28,8 @@
   display: flex
   flex-direction: column // Располагаем элементы вертикально
   align-items: flex-start // Выравниваем элементы по левому краю
-  justify-content: flex-start // Выравниваем элементы по верхнему краю
-  padding: 250px 0 0 20px // Отступы внутри overlay
+  justify-content: center // Выравниваем элементы по верхнему краю
+  padding: 0 0 0 20px // Отступы внутри overlay
   opacity: 0
   transition: opacity 0.3s ease
   z-index: 1
@@ -40,7 +40,7 @@
 
 // Стили для текста внутри overlay
 .text
-  width: 100% // Текст занимает всю ширину overlay
+  width: auto // Текст занимает минимально необходимую ширину
   color: #fff // Белый цвет текста
 
   h2
