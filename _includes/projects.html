@@ -4,7 +4,7 @@
         <div class="project-item">
           {% if include.video_mode %}
             <!-- Если video_mode=true, отображаем видео -->
-            {% include video.html video=project.video text=project.id youtube=project.youtube %}
+            {% include video.html video=projects.video text=projects.id youtube=projects.youtube %}
           {% else %}
             <!-- Если video_mode не указан, отображаем изображение -->
             {% include image.html url=project.url image=project.image text=project.name %}
