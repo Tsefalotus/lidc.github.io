@@ -58,6 +58,19 @@
     font-weight: 200 // Обычный шрифт для описания
     margin: 0 // Убираем отступы
 
+// Стили для надписи "View full video"
+.view-full-video
+  display: inline-block
+  margin-top: 10px // Отступ сверху
+  font-size: 14px // Размер шрифта
+  font-weight: 400 // Толщина шрифта
+  color: #fff // Белый цвет текста
+  text-decoration: underline // Подчёркивание текста
+  cursor: pointer // Указатель мыши при наведении
+
+  &:hover
+    color: #ccc // Изменение цвета при наведении
+
 /* Стили для модального окна */
 .modal
   display: none /* Скрываем модальное окно по умолчанию */
@@ -99,3 +112,4 @@ iframe
   width: 100% /* iframe занимает всю ширину модального окна */
   height: 675px /* Высота iframe */
   border: none
+
