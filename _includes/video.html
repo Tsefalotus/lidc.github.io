@@ -22,9 +22,18 @@
       </video>
       <div class="overlay">
         <div class="text">
-          {{ site.data.texts.project_texts[include.id] }}
+          <h2>{{ site.data.texts.project_texts[include.id].title }}</h2>
+          <p>{{ site.data.texts.project_texts[include.id].description }}</p>
         </div>
       </div>
     </div>
   {% endif %}
+</div>
+
+<!-- Модальное окно -->
+<div id="youtube-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <iframe id="youtube-iframe" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
