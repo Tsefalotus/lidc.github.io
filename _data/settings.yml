@@ -12,8 +12,8 @@ menu:
 
 projects:
 - {name: 'Project One',   url: 'proj-1', video: 'projects/proj-1/video1.mp4', youtube: '6_atn8WaLac'}
-- {name: 'Project Two',   url: 'proj-2', video: 'projects/proj-2/video2.mp4', youtube: '_oFC1VUsqLI'}
-- {name: 'Project Three', url: 'proj-3', video: 'projects/proj-3/video3.mp4', youtube: 'hQGSUwiuRww'}
+- {name: 'Project Two',   url: 'proj-2', video: 'projects/proj-2/video2.mp4', youtube: 'hQGSUwiuRww'}
+- {name: 'Project Three', url: 'proj-3', video: 'projects/proj-3/video3.mp4', youtube: '_oFC1VUsqLI'}
 - {name: 'Project Four',  url: 'proj-4'}
 - {name: 'Project Five',  url: 'proj-5'}
 
