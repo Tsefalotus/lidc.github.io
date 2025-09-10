@@ -11,10 +11,10 @@ menu:
 # Projects Section
 
 projects:
+- {name: 'Project Four', video: 'projects/proj-4/video4.mp4'}
 - {name: 'Project One',   url: 'proj-1', video: 'projects/proj-1/video1.mp4', youtube: '6_atn8WaLac'}
 - {name: 'Project Two',   url: 'proj-2', video: 'projects/proj-2/video2.mp4', youtube: 'hQGSUwiuRww'}
 - {name: 'Project Three', url: 'proj-3', video: 'projects/proj-3/video3.mp4', youtube: '_oFC1VUsqLI'}
-- {name: 'Project Four',  url: 'proj-4', video: 'projects/proj-4/video4.mp4'}
 
 #-------------------------------
 # Contact Section
