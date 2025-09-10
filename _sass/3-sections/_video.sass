@@ -30,6 +30,7 @@
   justify-content: center
   opacity: 0
   transition: opacity 0.3s ease
+  z-index: 1
 
 // При наведении на контейнер показываем overlay
 .video-container:hover .overlay
@@ -37,14 +38,13 @@
 
 // Стили для текста внутри overlay
 .text
-  font-family: 'Teko', sans-serif // Укажите нужный шрифт
-  font-size: 20px // Размер шрифта
-  font-weight: 400 // Толщина шрифта
-  font-optical-sizing: auto
-  font-style: normal
-  color: #fff // Цвет текста
-  text-decoration: none // Убираем подчеркивание
-  text-align: center
+  font-family: 'Teko', sans-serif; // Укажите нужный шрифт
+  font-size: 20px; // Размер шрифта
+  font-weight: 400; // Толщина шрифта
+  color: #fff; // Белый цвет текста
+  text-align: center; // Центрирование текста
+  z-index: 2; // Устанавливаем текст выше overlay
+  padding: 10px; // Отступы внутри текста
 
 /* Стили для модального окна */
 .modal
