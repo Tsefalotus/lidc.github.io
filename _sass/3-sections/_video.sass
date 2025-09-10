@@ -24,10 +24,12 @@
   left: 0
   width: 100%
   height: 100%
-  background: rgba(0, 0, 0, 0.5) // Полупрозрачный черный фон
+  background: rgba(0, 0, 0, 0.5) // Полупрозрачный чёрный фон
   display: flex
-  align-items: center
-  justify-content: center
+  flex-direction: column // Располагаем элементы вертикально
+  align-items: flex-start // Выравниваем элементы по левому краю
+  justify-content: flex-start // Выравниваем элементы по верхнему краю
+  padding: 20px // Отступы внутри overlay
   opacity: 0
   transition: opacity 0.3s ease
   z-index: 1
@@ -38,13 +40,20 @@
 
 // Стили для текста внутри overlay
 .text
-  font-family: 'Teko', sans-serif // Укажите нужный шрифт
-  font-size: 20px // Размер шрифта
-  font-weight: 400 // Толщина шрифта
+  width: 100% // Текст занимает всю ширину overlay
   color: #fff // Белый цвет текста
-  text-align: center // Центрирование текста
-  z-index: 2 // Устанавливаем текст выше overlay
-  padding: 10px // Отступы внутри текста
+
+  h2
+    font-family: 'Teko', sans-serif // Шрифт для заголовка
+    font-size: 24px // Размер шрифта заголовка
+    font-weight: 700 // Жирный шрифт для заголовка
+    margin: 0 0 10px 0 // Отступ снизу для заголовка
+
+  p
+    font-family: 'Roboto', sans-serif // Шрифт для описания
+    font-size: 16px // Размер шрифта описания
+    font-weight: 400 // Обычный шрифт для описания
+    margin: 0 // Убираем отступы
 
 /* Стили для модального окна */
 .modal
