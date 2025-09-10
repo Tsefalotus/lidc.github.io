@@ -60,16 +60,19 @@
 
 // Стили для надписи "View full video"
 .view-full-video
-  display: inline-block
-  margin-top: 10px // Отступ сверху
+  position: absolute // Абсолютное позиционирование
+  bottom: 20px // Располагаем надпись внизу overlay
+  left: 50% // Центрируем по горизонтали
+  transform: translateX(-50%) // Сдвигаем на половину ширины, чтобы центрировать
   font-size: 14px // Размер шрифта
   font-weight: 400 // Толщина шрифта
-  color: #fff // Белый цвет текста
-  text-decoration: underline // Подчёркивание текста
+  color: #aaa // Сероватый цвет текста
+  text-decoration: none // Убираем подчёркивание
   cursor: pointer // Указатель мыши при наведении
+  transition: color 0.3s ease // Плавный переход цвета
 
   &:hover
-    color: #ccc // Изменение цвета при наведении
+    color: #BD5248 // Изменение цвета при наведении
 
 /* Стили для модального окна */
 .modal
