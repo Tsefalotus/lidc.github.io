@@ -102,9 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // Скрыть overlay при окончании касания
       container.addEventListener('touchend', () => {
-        setTimeout(() => {
+        
           overlay.style.opacity = '0';
-        }, 500); // Скрываем через 1 секунду
+        
       });
       
       // Показать overlay при клике (для устройств с мышью)
