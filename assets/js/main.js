@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Устанавливаем атрибуты playsinline и muted для всех видео
+  document.querySelectorAll('.lazy-video').forEach((video) => {
+    video.setAttribute('playsinline', 'true');
+    video.setAttribute('muted', 'true');
+  });
   const videos = document.querySelectorAll(".lazy-video");
   const modal = document.getElementById("youtube-modal");
   const iframe = document.getElementById("youtube-iframe");
