@@ -21,6 +21,7 @@ header
 .logo
   display: flex
   align-items: center
+  margin: 0 // Убираем любые отступы у логотипа
 
   svg
     width: 70px // Установите ширину логотипа
@@ -31,18 +32,23 @@ header
     // Адаптивные размеры логотипа
     @media (max-width: 768px)
       width: 60px
+      padding: 12px 0
     
     @media (max-width: 480px)
       width: 50px
+      padding: 10px 0
     
     @media (max-width: 375px)
       width: 45px
+      padding: 8px 0
 
     &:hover
       fill: $accent-color // Цвет при наведении
 
 // Стили для навигации
 nav
+  margin: 0 // Убираем отступы у навигации
+
   ul
     display: flex
     list-style: none
