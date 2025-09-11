@@ -47,8 +47,19 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      // Ставим на паузу все видео-превью
+      videos.forEach((video) => {
+        if (!video.paused) {
+          console.log("Pausing video:", video);
+          video.pause();
+        }
+      });
+
+// Отключаем IntersectionObserver временно
+videoObserver.disconnect();
+
       // Устанавливаем ссылку на YouTube-видео
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
       modal.style.display = 'block'; // Показываем модальное окно
     });
   });
@@ -60,5 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     modal.style.display = 'none'; // Скрываем модальное окно
+
+    // После закрытия модального окна включаем IntersectionObserver
+    videos.forEach((video) => {
+      videoObserver.observe(video); // Включаем наблюдение за всеми видео
+    });
+
+    // IntersectionObserver автоматически воспроизведёт видео, которое пересекает 50% экрана
+    console.log("Reactivating IntersectionObserver to resume video on screen.");
   });
 });
