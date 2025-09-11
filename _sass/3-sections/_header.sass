@@ -6,6 +6,16 @@ header
   padding: 15px 25px 15px 25px
   background-color: #111 // Цвет фона шапки
   max-width: 100%
+  
+  // Адаптивные отступы для мобильных устройств
+  @media (max-width: 768px)
+    padding: 12px 20px
+  
+  @media (max-width: 480px)
+    padding: 10px 15px
+  
+  @media (max-width: 375px)
+    padding: 8px 12px
 
 // Стили для логотипа
 .logo
@@ -17,6 +27,16 @@ header
     height: auto // Сохраняем пропорции
     fill: #fff // Белый цвет по умолчанию
     transition: fill 0.3s ease // Плавный переход цвета
+    
+    // Адаптивные размеры логотипа
+    @media (max-width: 768px)
+      width: 60px
+    
+    @media (max-width: 480px)
+      width: 50px
+    
+    @media (max-width: 375px)
+      width: 45px
 
     &:hover
       fill: $accent-color // Цвет при наведении
@@ -28,19 +48,118 @@ nav
     list-style: none
     margin: 0
     padding: 0
+    
+    // Адаптивные отступы между пунктами меню
+    @media (max-width: 768px)
+      gap: 15px
+    
+    @media (max-width: 480px)
+      gap: 10px
+    
+    @media (max-width: 375px)
+      gap: 8px
 
     li
       margin-left: 20px
+      
+      @media (max-width: 768px)
+        margin-left: 15px
+      
+      @media (max-width: 480px)
+        margin-left: 10px
+      
+      @media (max-width: 375px)
+        margin-left: 8px
 
       a
         font-family: 'Teko', sans-serif // Укажите нужный шрифт
-        font-size: 30px // Размер шрифта
+        font-size: clamp(20px, 4vw, 30px) // Адаптивный размер шрифта
         font-weight: 400 // Толщина шрифта
         font-optical-sizing: auto
         font-style: normal
         color: #fff // Цвет текста
         text-decoration: none // Убираем подчеркивание
         transition: color 0.3s ease // Плавный переход цвета
+        
+        // Дополнительные медиа-запросы для точного контроля
+        @media (max-width: 768px)
+          font-size: clamp(18px, 3.5vw, 26px)
+        
+        @media (max-width: 480px)
+          font-size: clamp(16px, 3vw, 22px)
+        
+        @media (max-width: 375px)
+          font-size: clamp(14px, 2.8vw, 20px)
 
         &:hover
           color: #BD5248 // Цвет текста при наведении
+
+// Адаптивные стили для дополнительных элементов header
+.header
+  // Заголовки в header
+  h1
+    font-size: clamp(28px, 6vw, 64px)
+    color: #fff
+    margin: 0
+    
+    @media (max-width: 768px)
+      font-size: clamp(24px, 5vw, 48px)
+    
+    @media (max-width: 480px)
+      font-size: clamp(20px, 4vw, 36px)
+    
+    @media (max-width: 375px)
+      font-size: clamp(18px, 3.5vw, 28px)
+
+  h2
+    font-size: clamp(20px, 4vw, 40px)
+    color: #fff
+    margin: 0
+    
+    @media (max-width: 768px)
+      font-size: clamp(18px, 3.5vw, 32px)
+    
+    @media (max-width: 480px)
+      font-size: clamp(16px, 3vw, 24px)
+    
+    @media (max-width: 375px)
+      font-size: clamp(14px, 2.8vw, 20px)
+
+  // Подзаголовки и описания
+  p, .description, .subtitle
+    font-size: clamp(14px, 2.5vw, 24px)
+    color: #ccc
+    
+    @media (max-width: 768px)
+      font-size: clamp(13px, 2.2vw, 20px)
+    
+    @media (max-width: 480px)
+      font-size: clamp(12px, 2vw, 18px)
+    
+    @media (max-width: 375px)
+      font-size: clamp(11px, 1.8vw, 16px)
+
+  // Кнопки в header
+  .btn, button, .button
+    font-size: clamp(12px, 2vw, 18px)
+    padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px)
+    background: transparent
+    border: 2px solid #fff
+    color: #fff
+    text-decoration: none
+    cursor: pointer
+    transition: all 0.3s ease
+    
+    @media (max-width: 480px)
+      font-size: clamp(11px, 1.8vw, 16px)
+      padding: 8px 16px
+    
+    @media (max-width: 375px)
+      font-size: clamp(10px, 1.6vw, 14px)
+      padding: 6px 12px
+    
+    &:hover
+      background: #BD5248
+      border-color: #BD5248
+      color: #fff
+      
