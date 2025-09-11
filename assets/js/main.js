@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       videoObserver.disconnect();
 
       // Устанавливаем ссылку на YouTube-видео
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&vq=hd1080`;
       modal.style.display = 'flex'; // Показываем модальное окно
     });
   });
