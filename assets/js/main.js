@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-// Отключаем IntersectionObserver временно
-videoObserver.disconnect();
+      // Отключаем IntersectionObserver временно
+      videoObserver.disconnect();
 
       // Устанавливаем ссылку на YouTube-видео
       iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
-      modal.style.display = 'block'; // Показываем модальное окно
+      modal.style.display = 'flex'; // Показываем модальное окно
     });
   });
 
