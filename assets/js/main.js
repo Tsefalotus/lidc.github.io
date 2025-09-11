@@ -64,13 +64,15 @@ videoObserver.disconnect();
     });
   });
 
-  // Закрытие модального окна
-  closeModal.addEventListener('click', () => {
-    if (iframe) {
-      iframe.src = ''; // Очищаем src, чтобы остановить видео
-    }
+  // Закрытие модального окна при клике на пустое место
+  modal.addEventListener('click', (event) => {
+    // Проверяем, что клик был за пределами содержимого модального окна
+    if (event.target === modal) {
+      if (iframe) {
+        iframe.src = ''; // Очищаем src, чтобы остановить видео
+      }
 
-    modal.style.display = 'none'; // Скрываем модальное окно
+      modal.style.display = 'none'; // Скрываем модальное окно
 
     // После закрытия модального окна включаем IntersectionObserver
     videos.forEach((video) => {
