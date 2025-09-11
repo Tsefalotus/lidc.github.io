@@ -74,12 +74,12 @@ videoObserver.disconnect();
 
       modal.style.display = 'none'; // Скрываем модальное окно
 
-    // После закрытия модального окна включаем IntersectionObserver
-    videos.forEach((video) => {
-      videoObserver.observe(video); // Включаем наблюдение за всеми видео
-    });
+      // Включаем IntersectionObserver снова
+      videos.forEach((video) => {
+        videoObserver.observe(video); // Включаем наблюдение за всеми видео
+      });
 
-    // IntersectionObserver автоматически воспроизведёт видео, которое пересекает 50% экрана
-    console.log("Reactivating IntersectionObserver to resume video on screen.");
+      console.log("Reactivating IntersectionObserver to resume video on screen.");
+    }
   });
 });
