@@ -4,6 +4,35 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute('playsinline', 'true');
     video.setAttribute('muted', 'true');
   });
+
+  // Обработчики для overlay на мобильных устройствах
+document.querySelectorAll('.video-container').forEach((container) => {
+  const overlay = container.querySelector('.overlay');
+  
+  if (overlay) {
+    // Показать overlay при касании
+    container.addEventListener('touchstart', () => {
+      overlay.style.opacity = '1';
+    });
+    
+    // Скрыть overlay при окончании касания
+    container.addEventListener('touchend', () => {
+      setTimeout(() => {
+        overlay.style.opacity = '0';
+      }, 2000); // Скрываем через 2 секунды
+    });
+    
+    // Показать overlay при клике (для устройств с мышью)
+    container.addEventListener('mouseenter', () => {
+      overlay.style.opacity = '1';
+    });
+    
+    // Скрыть overlay при уходе мыши
+    container.addEventListener('mouseleave', () => {
+      overlay.style.opacity = '0';
+    });
+  }
+});
   const videos = document.querySelectorAll(".lazy-video");
   const modal = document.getElementById("youtube-modal");
   const iframe = document.getElementById("youtube-iframe");
