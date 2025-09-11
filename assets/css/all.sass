@@ -17,3 +17,12 @@ $documentBackgroundColor: #111 // Темно-серый фон для докум
 @import '1-tools/-tools-dir'
 @import '2-base/-base-dir'
 @import '3-sections/-sections-dir'
+
+// Адаптивные переменные
+$mobile-breakpoint: 480px
+$tablet-breakpoint: 768px
+$desktop-breakpoint: 1024px
+
+// Функции для адаптивных размеров
+@function responsive-font($min-size, $max-size, $min-vw: 320px, $max-vw: 1200px)
+    @return calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
