@@ -71,6 +71,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Добавляем обработчики для контейнеров видео
+  document.querySelectorAll('.video-container').forEach((container) => {
+    const button = container.querySelector('.view-full-video');
+    if (button) {
+      const videoId = button.dataset.videoId;
+      
+      // Обработчик для кнопки на десктопе
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openVideo(videoId);
+      });
+
+      // Обработчик для всего превью на мобильных устройствах
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        container.addEventListener('click', (event) => {
+          event.preventDefault();
+          openVideo(videoId);
+        });
+      }
+    }
+  });
+
   // Закрытие модального окна при клике на пустое место
   modal.addEventListener('click', (event) => {
     // Проверяем, что клик был за пределами содержимого модального окна
