@@ -9,10 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(".lazy-video");
   const modal = document.getElementById("youtube-modal");
   const iframe = document.getElementById("youtube-iframe");
-  const closeModal = document.querySelector(".close-modal");
-  const openModalLinks = document.querySelectorAll(".open-modal");
 
-  let currentVideoPreview = null; // Переменная для хранения текущего видео-превью
 
   // Наблюдатель для видео-превью
   const observerOptions = {
