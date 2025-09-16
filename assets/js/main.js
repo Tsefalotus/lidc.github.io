@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     videoObserver.observe(video);
   });
 
-  // Функция для открытия видео на мобильных устройствах (iOS и Android)
-  function openVideoOnMobile(videoId) {
+  // Функция для открытия видео на iOS
+  function openVideoOnIOS(videoId) {
     // Ставим на паузу все видео-превью
     videos.forEach((video) => {
       if (!video.paused) {
@@ -68,18 +68,96 @@ document.addEventListener("DOMContentLoaded", function () {
     // Отключаем IntersectionObserver временно
     videoObserver.disconnect();
 
-    // Создаём прямую ссылку на YouTube видео
+    // Создаём прямую ссылку на YouTube видео для iOS
     const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
     
-    // Открываем видео в том же окне (запустит AVPlayer на iOS или YouTube app на Android)
+    // Открываем видео в том же окне (запустит AVPlayer)
     window.location.href = youtubeUrl;
     
-    // Возвращаем IntersectionObserver через задержку (на случай, если пользователь вернётся)
+    // Возвращаем IntersectionObserver через задержку
     setTimeout(() => {
       videos.forEach((video) => {
         videoObserver.observe(video);
       });
     }, 2000);
+  }
+
+  // Надёжная функция для открытия видео на Android
+  function openVideoOnAndroid(videoId) {
+    // Ставим на паузу все видео-превью
+    videos.forEach((video) => {
+      if (!video.paused) {
+        console.log("Pausing video:", video);
+        video.pause();
+      }
+    });
+
+    // Отключаем IntersectionObserver временно
+    videoObserver.disconnect();
+
+    // Множественный подход для максимальной совместимости
+    const attempts = [
+      // Метод 1: Intent URL с fallback
+      () => {
+        const intentUrl = `intent://www.youtube.com/watch?v=${videoId}#Intent;package=com.google.android.youtube;scheme=https;S.browser_fallback_url=https%3A//www.youtube.com/watch%3Fv%3D${videoId};end;`;
+        window.location.href = intentUrl;
+      },
+      
+      // Метод 2: YouTube app scheme
+      () => {
+        const youtubeAppUrl = `vnd.youtube://${videoId}`;
+        const link = document.createElement('a');
+        link.href = youtubeAppUrl;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      },
+      
+      // Метод 3: Универсальная ссылка YouTube
+      () => {
+        const youtubeUrl = `https://youtu.be/${videoId}`;
+        window.open(youtubeUrl, '_blank');
+      },
+      
+      // Метод 4: Обычная ссылка YouTube (fallback)
+      () => {
+        const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        window.open(youtubeUrl, '_blank');
+      }
+    ];
+
+    // Пытаемся выполнить методы по очереди
+    let currentAttempt = 0;
+    
+    function tryNextMethod() {
+      if (currentAttempt < attempts.length) {
+        try {
+          console.log(`Trying method ${currentAttempt + 1} for Android`);
+          attempts[currentAttempt]();
+          currentAttempt++;
+          
+          // Если первые методы не сработали, пробуем следующий через короткую задержку
+          if (currentAttempt < 3) {
+            setTimeout(tryNextMethod, 1000);
+          }
+        } catch (error) {
+          console.log(`Method ${currentAttempt + 1} failed:`, error);
+          currentAttempt++;
+          tryNextMethod();
+        }
+      }
+    }
+    
+    // Начинаем попытки
+    tryNextMethod();
+    
+    // Возвращаем IntersectionObserver через задержку
+    setTimeout(() => {
+      videos.forEach((video) => {
+        videoObserver.observe(video);
+      });
+    }, 3000);
   }
 
   // Функция для открытия модального окна (только ПК)
@@ -107,9 +185,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Универсальная функция для открытия видео
   function openVideo(videoId) {
-    if (isIOS() || isAndroid()) {
-      // На мобильных устройствах (iOS и Android) открываем прямо в приложении
-      openVideoOnMobile(videoId);
+    if (isIOS()) {
+      // На iOS открываем в AVPlayer
+      openVideoOnIOS(videoId);
+    } else if (isAndroid()) {
+      // На Android пытаемся открыть в приложении YouTube
+      openVideoOnAndroid(videoId);
     } else {
       // На ПК открываем модальное окно
       openModal(videoId);
@@ -227,6 +308,20 @@ document.addEventListener("DOMContentLoaded", function () {
             videoObserver.observe(video);
           });
         }, 1000);
+      }
+    });
+  }
+
+  // Дополнительный обработчик для Android - отслеживание видимости страницы
+  if (isAndroid()) {
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        // Пользователь вернулся на страницу, возобновляем observer
+        setTimeout(() => {
+          videos.forEach((video) => {
+            videoObserver.observe(video);
+          });
+        }, 500);
       }
     });
   }
