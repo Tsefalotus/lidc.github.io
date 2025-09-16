@@ -136,6 +136,24 @@
   width: 1200px /* Ширина окна */
   height: auto
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6) /* Тень для эффекта */
+  position: relative
+
+/* Адаптивные стили для мобильных устройств */
+  @media (max-width: 768px)
+    width: 95vw /* Ширина под экран мобильного */
+    max-width: none /* Убираем ограничение */
+    padding: 5px
+    border-radius: 8px
+  
+  @media (max-width: 480px)
+    width: 98vw /* Почти во всю ширину экрана */
+    padding: 3px
+    border-radius: 6px
+  
+  @media (max-width: 375px)
+    width: 100vw /* Во всю ширину экрана */
+    padding: 0
+    border-radius: 0 /* Убираем скругления на маленьких экранах */
 
 /* Стили для кнопки закрытия */
 .close-modal
@@ -145,9 +163,47 @@
   font-size: 24px
   color: #fff
   cursor: pointer
+  z-index: 1001 /* Поверх iframe */
 
+  /* Адаптивные размеры для мобильных */
+  @media (max-width: 768px)
+    top: 5px
+    right: 15px
+    font-size: 28px /* Больше размер для удобства нажатия */
+  
+  @media (max-width: 480px)
+    top: 5px
+    right: 10px
+    font-size: 32px
+  
+  @media (max-width: 375px)
+    top: 10px
+    right: 15px
+    font-size: 36px
+
+/* Стили для iframe */
 iframe
   width: 100% /* iframe занимает всю ширину модального окна */
-  height: 675px /* Высота iframe */
+  height: 675px /* Высота для соотношения 16:9 при ширине 1200px */
   border: none
+  border-radius: 5px
+  
+  /* Адаптивная высота для мобильных устройств */
+  @media (max-width: 768px)
+    height: 53.4vw /* Поддерживаем соотношение 16:9 (95vw * 9/16) */
+    border-radius: 4px
+  
+  @media (max-width: 480px)
+    height: 55.1vw /* Поддерживаем соотношение 16:9 (98vw * 9/16) */
+    border-radius: 3px
+  
+  @media (max-width: 375px)
+    height: 56.25vw /* Поддерживаем соотношение 16:9 (100vw * 9/16) */
+    border-radius: 0
+
+/* Альтернативный подход с aspect-ratio (для современных браузеров) */
+@supports (aspect-ratio: 16 / 9)
+  iframe
+    height: auto
+    aspect-ratio: 16 / 9 /* Автоматически поддерживает соотношение 16:9 */
 
