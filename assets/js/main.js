@@ -20,6 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return /iPad|iPhone|iPod/.test(navigator.userAgent);
   }
 
+  // Функция для определения Android
+  function isAndroid() {
+    return /Android/.test(navigator.userAgent);
+  }
+
+  // Функция для определения десктопа
+  function isDesktop() {
+    return !isMobile() && !isIOS() && !isAndroid();
+  }
+
   // Наблюдатель для видео-превью
   const observerOptions = {
     root: null,
@@ -45,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     videoObserver.observe(video);
   });
 
-  // Функция для открытия видео на iPhone/iPad в AVPlayer
-  function openVideoOnIOS(videoId) {
+  // Функция для открытия видео на мобильных устройствах (iOS и Android)
+  function openVideoOnMobile(videoId) {
     // Ставим на паузу все видео-превью
     videos.forEach((video) => {
       if (!video.paused) {
@@ -61,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Создаём прямую ссылку на YouTube видео
     const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
     
-    // Открываем видео в том же окне (это запустит AVPlayer)
+    // Открываем видео в том же окне (запустит AVPlayer на iOS или YouTube app на Android)
     window.location.href = youtubeUrl;
     
     // Возвращаем IntersectionObserver через задержку (на случай, если пользователь вернётся)
@@ -72,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   }
 
-  // Функция для открытия модального окна (ПК и Android)
+  // Функция для открытия модального окна (только ПК)
   function openModal(videoId) {
     if (!iframe) {
       console.error("Iframe with ID 'youtube-iframe' not found");
@@ -97,11 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Универсальная функция для открытия видео
   function openVideo(videoId) {
-    if (isIOS()) {
-      // На iOS открываем в AVPlayer
-      openVideoOnIOS(videoId);
+    if (isIOS() || isAndroid()) {
+      // На мобильных устройствах (iOS и Android) открываем прямо в приложении
+      openVideoOnMobile(videoId);
     } else {
-      // На ПК и Android открываем модальное окно
+      // На ПК открываем модальное окно
       openModal(videoId);
     }
   }
@@ -137,20 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Закрытие модального окна при клике на кнопку закрытия (только для не-iOS)
-  if (closeModal) {
+  // Закрытие модального окна при клике на кнопку закрытия (только для ПК)
+  if (closeModal && isDesktop()) {
     closeModal.addEventListener('click', () => {
-      // Удаляем созданные элементы (на случай, если они были добавлены)
-      const customElements = document.querySelectorAll('.modal-content video, .modal-content button');
-      customElements.forEach(element => {
-        if (element.parentNode && element !== iframe) {
-          element.parentNode.removeChild(element);
-        }
-      });
-      
       if (iframe) {
         iframe.src = '';
-        iframe.style.display = 'block'; // Возвращаем iframe для других устройств
       }
       modal.style.display = 'none';
 
@@ -161,21 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Закрытие модального окна при клике на пустое место (только для не-iOS)
-  if (modal) {
+  // Закрытие модального окна при клике на пустое место (только для ПК)
+  if (modal && isDesktop()) {
     modal.addEventListener('click', (event) => {
       if (event.target === modal) {
-        // Удаляем созданные элементы (на случай, если они были добавлены)
-        const customElements = document.querySelectorAll('.modal-content video, .modal-content button');
-        customElements.forEach(element => {
-          if (element.parentNode && element !== iframe) {
-            element.parentNode.removeChild(element);
-          }
-        });
-        
         if (iframe) {
           iframe.src = '';
-          iframe.style.display = 'block'; // Возвращаем iframe для других устройств
         }
         modal.style.display = 'none';
 
@@ -216,8 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Обработчик для возврата на страницу (для iOS устройств)
-  if (isIOS()) {
+  // Обработчик для возврата на страницу (для мобильных устройств)
+  if (isMobile()) {
     window.addEventListener('focus', () => {
       // Когда пользователь возвращается на страницу, возобновляем работу observer
       setTimeout(() => {
