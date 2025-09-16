@@ -99,19 +99,34 @@
   &:hover
     color: #BD5248 // Изменение цвета при наведении
 
-  // Медиа-запросы для мобильных устройств
-  @media (max-width: 480px)
+  // Медиа-запросы для мобильных устройств - сдвигаем ниже
+  @media (max-width: 768px)
+    bottom: 10px // Ниже на планшетах
     font-size: clamp(9px, 2.5vw, 12px)
     padding: 8px 16px
-    bottom: 15px
   
-  @media (max-width: 375px)
+  @media (max-width: 480px)
+    bottom: 8px // Ещё ниже на мобильных
     font-size: clamp(8px, 2.2vw, 11px)
     padding: 6px 12px
-    bottom: 12px
+  
+  @media (max-width: 375px)
+    bottom: 5px // Максимально низко на маленьких экранах
+    font-size: clamp(7px, 2vw, 10px)
+    padding: 4px 8px
 
-  @media (max-width: 768px)
-    pointer-events: none // Отключает клики на текст на мобильных устройствах
+// Альтернативно, если хотите сдвинуть ещё ниже:
+@media (max-width: 768px)
+  .view-full-video
+    bottom: 5px // Очень низко
+
+@media (max-width: 480px)
+  .view-full-video
+    bottom: 3px // Практически у самого края
+
+@media (max-width: 375px)
+  .view-full-video
+    bottom: 2px // У самого края экрана
 
 /* Стили для модального окна */
 .modal
