@@ -1,5 +1,4 @@
 # Build settings
-port: 4000
 markdown: kramdown
 permalink: /:title
 
@@ -10,6 +9,11 @@ author: "Danil Nuriev"
 url: "https://lidcvideo.com"
 baseurl: ""
 
-# GitHub Pages
-github:
-  url: "https://lidcvideo.com"
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
