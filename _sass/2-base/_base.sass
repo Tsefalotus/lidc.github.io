@@ -32,8 +32,6 @@ h1, h2, h3, h4, h5, h6
   font-size: 10px
   line-height: 1.2
 
-
-
 p
   margin: 0 0 20px 0
 
@@ -50,8 +48,6 @@ hr
   margin: 10px 0 30px
   height: 0
 
-
-
 /* Links
   ------------------------------------	*/
 a
@@ -61,8 +57,6 @@ a
 
 a:hover, a:focus
   color: lighten($accent, 20%)
-
-
 
 /* Selection colors (easy to forget)
   ------------------------------------	*/
@@ -82,11 +76,16 @@ img::-moz-selection
 body
   -webkit-tap-highlight-color: $selectionColor
 
-
-
 /* Basic Styles
   ------------------------------------	*/
+html, body
+  height: 100%
+  margin: 0
+
 body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
   background: $documentBackgroundColor
   font-size: 14px
   line-height: 1.6
@@ -94,6 +93,9 @@ body
   color: $textColor
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: 100%
+
+main
+  flex: 1
 
 svg
   +size(100%)
@@ -119,3 +121,4 @@ section:nth-child(odd)
 
   h3
     color: darken($accent-light, 10%)
+    
