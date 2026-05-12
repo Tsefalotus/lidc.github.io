@@ -6,4 +6,8 @@ permalink: /contact
 
 # Contact
 
-Feel free to contact me via email or Instagram if you have any questions.
+I’m open to collaborations, freelance projects, and creative opportunities. If you’d like to work together or ask a question, feel free to get in touch.
+
+Email: nuriev.danil25@gmail.com
+Instagram: @lidc_dn
+YouTube: @daniilnuriev6147
