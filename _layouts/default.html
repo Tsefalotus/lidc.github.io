@@ -15,16 +15,32 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
     
+    <!-- Google Analytics -->
+    {% if site.data.settings.google-analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.settings.google-analytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.data.settings.google-analytics }}');
+    </script>
+    {% endif %}
+    
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Scripts -->
+    <script src="{{ site.baseurl }}/assets/js/main.js" defer></script>
   </head>
   <body>
     {% include header.html %}
     {{ content }}
     {% include footer.html %}
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </body>
 </html>
