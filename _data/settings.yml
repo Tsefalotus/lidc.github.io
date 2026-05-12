@@ -43,14 +43,7 @@ seo:
 
 #-------------------------------
 # Google Analytics Section
-
-# Analytics helps you understand who visits your website.
-# Learn more at: http://support.google.com/analytics/answer/1008065
-
-# NOTE: If you want to use Google Analytics for basic web tracking: Just uncomment and enter your UA-Code here.
-
-# If you are not using Google Analytics, please change 'google-ID' to an empty string
-# google-analytics-ua: 'UA-112060364-3'
+google-analytics: G-X0V4GS98RW
 
 #-------------------------------
 # Disqus Section

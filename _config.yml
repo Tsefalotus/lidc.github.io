@@ -1,12 +1,15 @@
 # Build settings
-
 port: 4000
-markdown:  kramdown
+markdown: kramdown
 permalink: /:title
-plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-
-title:		   "LIDC - Life in Different Colors"
+# Site settings
+title: "LIDC - Life in Different Colors"
 description: "Videographer & Video Editor - Cinematic Visual Content"
-author:      "Daniil Nuriev"
+author: "Danil Nuriev"
+url: "https://lidcvideo.com"
+baseurl: ""
+
+# GitHub Pages
+github:
+  url: "https://lidcvideo.com"
