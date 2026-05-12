@@ -1,6 +1,7 @@
 .page-content
   width: 650px
   margin: 30px
+  padding-top: 50px  // Добавил отступ сверху
   font-family: 'Poppins', sans-serif
   color: #ffffff
   
@@ -32,8 +33,8 @@
   p
     font-family: 'Poppins', sans-serif
     line-height: 1.4
-    font-size: clamp(14px, 2vw, 18px)  // Уменьшил с 12px-30px до 14px-18px
-    font-weight: 300  // Можно поставить 300-400 для читаемости
+    font-size: clamp(14px, 2vw, 18px)
+    font-weight: 300
     color: #ffffff
     margin: 0 0 15px 0
     
@@ -49,3 +50,4 @@
 @media (max-width: 768px)
   .page-content
     width: 80vw
+    padding-top: 30px  // Меньший отступ на мобильных
