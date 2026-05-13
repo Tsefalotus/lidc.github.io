@@ -47,3 +47,5 @@ I'm open to collaborations, freelance projects, and creative opportunities. If y
 **Instagram:** [@lidc_dn](https://instagram.com/lidc_dn)
 
 **YouTube:** [@daniilnuriev6147](https://www.youtube.com/@daniilnuriev6147)
+
+**LinkedIn** [Daniil Nuriev](https://www.linkedin.com/in/daniil-nuriev-162747176/)
