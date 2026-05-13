@@ -48,4 +48,4 @@ I'm open to collaborations, freelance projects, and creative opportunities. If y
 
 **YouTube:** [@daniilnuriev6147](https://www.youtube.com/@daniilnuriev6147)
 
-**LinkedIn** [Daniil Nuriev](https://www.linkedin.com/in/daniil-nuriev-162747176/)
+**LinkedIn:** [Daniil Nuriev](https://www.linkedin.com/in/daniil-nuriev-162747176/)
