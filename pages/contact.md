@@ -42,8 +42,8 @@ I'm open to collaborations, freelance projects, and creative opportunities. If y
 
 ## Direct Contact
 
-**📧 Email:** [nuriev.danil25@gmail.com](mailto:nuriev.danil25@gmail.com)
+**Email:** [nuriev.danil25@gmail.com](mailto:nuriev.danil25@gmail.com)
 
-**📸 Instagram:** [@lidc_dn](https://instagram.com/lidc_dn)
+**Instagram:** [@lidc_dn](https://instagram.com/lidc_dn)
 
-**🎥 YouTube:** [@daniilnuriev6147](https://www.youtube.com/@daniilnuriev6147)
+**YouTube:** [@daniilnuriev6147](https://www.youtube.com/@daniilnuriev6147)
