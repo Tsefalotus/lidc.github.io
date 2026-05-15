@@ -1,7 +1,7 @@
 .page-content
   width: 650px
   margin: 30px
-  padding-top: 20px  // Добавил отступ сверху
+  padding-top: 20px
   font-family: 'Poppins', sans-serif
   color: #ffffff
   
@@ -36,18 +36,41 @@
     font-size: clamp(14px, 2vw, 18px)
     font-weight: 300
     color: #ffffff
-    margin: 0 0 15px 0
+  
+  // ДОБАВЬТЕ ЭТО для списков
+  ul, ol
+    font-family: 'Poppins', sans-serif
+    font-size: clamp(14px, 2vw, 18px)
+    font-weight: 300
+    color: #ffffff
+    line-height: 1.6
+    padding-left: 20px
     
     @media (max-width: 768px)
-      font-size: clamp(13px, 2vw, 16px)
+      font-size: clamp(13px, 2.5vw, 16px)
+      padding-left: 15px
     
     @media (max-width: 480px)
-      font-size: clamp(12px, 1.8vw, 14px)
+      font-size: clamp(12px, 3vw, 14px)
+      padding-left: 10px
     
-    @media (max-width: 375px)
-      font-size: clamp(11px, 1.6vw, 13px)
-
-@media (max-width: 768px)
-  .page-content
-    width: 80vw
-    padding-top: 30px  // Меньший отступ на мобильных
+    li
+      margin-bottom: 8px
+      
+      @media (max-width: 480px)
+        margin-bottom: 6px
+  
+  // Адаптивная ширина контейнера
+  @media (max-width: 768px)
+    width: 90%
+    margin: 20px auto
+  
+  @media (max-width: 480px)
+    width: 95%
+    margin: 15px auto
+    padding-top: 15px
+  
+  @media (max-width: 375px)
+    width: 100%
+    padding: 10px
+    margin: 10px auto
