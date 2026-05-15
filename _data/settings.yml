@@ -11,13 +11,13 @@ menu:
 # Projects Section
 
 projects:
-- {id: 'proj-6', video: 'projects/proj-6/video6.mp4', youtube: 'hbmgP5ITJ3g'}
 - {id: 'proj-1', video: 'projects/proj-1/video1.mp4', youtube: '6_atn8WaLac'}
 - {id: 'proj-2', video: 'projects/proj-2/video2.mp4'}
 - {id: 'proj-3', video: 'projects/proj-3/video3.mp4', youtube: 'hQGSUwiuRww'}
 - {id: 'proj-7', video: 'projects/proj-7/video7.mp4'}
 - {id: 'proj-5', video: 'projects/proj-5/video5.mp4', youtube: '_oFC1VUsqLI'}
 - {id: 'proj-4', video: 'projects/proj-4/video4.mp4'}
+- {id: 'proj-6', video: 'projects/proj-6/video6.mp4', youtube: 'hbmgP5ITJ3g'}
 
 #-------------------------------
 # Contact Section
